@@ -2,8 +2,8 @@ pandas
 seaborn
 matplotlib
 numpy
-streamlit==1.25.0
-altair==4.2.2
+streamlit
+altair
 
 
 
