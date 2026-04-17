@@ -23,14 +23,8 @@ st.set_page_config(
     page_title="MediViz | Minor Project",
     page_icon="🫀",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="auto"   # changed from "expanded" → more reliable toggle
 )
-# ==============================
-# SIMPLE POPUP NOTICE (WORKING)
-# ==============================
-
-# =========================
-
 
 # ══════════════════════════════════════════════
 #  GLOBAL STYLES
@@ -52,9 +46,32 @@ st.markdown("""
 
 /* ── Base ── */
 .stApp { background: var(--bg); color: #d0e8ff; font-family: 'DM Sans', sans-serif; }
-#MainMenu, footer, header { visibility: hidden; }
+#MainMenu, footer { visibility: hidden; }
+/* NOTE: 'header' is intentionally NOT hidden so the sidebar toggle button remains visible */
 ::-webkit-scrollbar { width: 5px; background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 4px; }
+
+/* ── Sidebar toggle button (hamburger) ── */
+[data-testid="collapsedControl"] {
+  display: block !important;
+  visibility: visible !important;
+  color: #00e5ff !important;
+  background: rgba(0, 229, 255, 0.1) !important;
+  border: 1px solid rgba(0, 229, 255, 0.3) !important;
+  border-radius: 8px !important;
+}
+
+[data-testid="stSidebarCollapseButton"] {
+  display: block !important;
+  visibility: visible !important;
+  color: #00e5ff !important;
+}
+
+/* Make sure the header bar that holds the toggle is visible but transparent */
+[data-testid="stHeader"] {
+  background: transparent !important;
+  visibility: visible !important;
+}
 
 /* ── Sidebar ── */
 [data-testid="stSidebar"] {
@@ -358,10 +375,6 @@ st.markdown("""
 @keyframes type  { 0%{width:0} 55%{width:100%} 90%{width:100%} 100%{width:0} }
 @keyframes blink { from,to{border-color:transparent} 50%{border-color:var(--green)} }
 
-
-
-
-
 /* ══════════════════════
    HEARTBEAT LINE (decoration)
 ══════════════════════ */
@@ -375,7 +388,6 @@ st.markdown("""
 .hb-svg { width: 100%; height: 100%; }
 </style>
 """, unsafe_allow_html=True)
-
 
 
 # ══════════════════════════════════════════════
@@ -610,50 +622,48 @@ elif page == "👥  Our Team":
     # ════════════════════════════════════════════════════════════════
     team = [
         {
-            "name":    "Smruti Somyashree Parida",       # ← replace with real name
+            "name":    "Smruti Somyashree Parida",
             "role":    "Team Lead",
             "emoji":   "😎",
             "contrib": "Architecture & Coordination",
-            "photo":   None,               # e.g.  "photo1.jpg"  or  "https://..."
+            "photo":   None,
         },
         {
             "name":    "Sunayana Bal",
             "role":    "Data Engineer",
             "emoji":   "📊",
             "contrib": "Data Cleaning & EDA",
-            "photo":   None,               # e.g.  "photo2.jpg"
+            "photo":   None,
         },
         {
             "name":    "Tanushree Pradhan",
             "role":    "Viz Developer",
             "emoji":   "📈",
             "contrib": "Charts & Plots",
-            "photo":   None,               # e.g.  "photo3.jpg"
+            "photo":   None,
         },
         {
             "name":    "Sulekha Deo",
             "role":    "UI Designer",
             "emoji":   "🎨",
             "contrib": "Dashboard & Styling",
-            "photo":   None,               # e.g.  "photo4.jpg"
+            "photo":   None,
         },
         {
             "name":    "Shrabani Parida",
             "role":    "Research Analyst",
             "emoji":   "🔬",
             "contrib": "Insights & Documentation",
-            "photo":   None,               # e.g.  "photo5.jpg"
+            "photo":   None,
         },
     ]
-    # ════════════════════════════════════════════
 
     # Build cards HTML
     cards = ""
     for m in team:
         if m["photo"]:
-            # Try local file first (converts to base64 so Streamlit HTML can embed it)
             b64 = img_to_base64(m["photo"])
-            src = b64 if b64 else m["photo"]  # fall back to URL if not a local path
+            src = b64 if b64 else m["photo"]
             avatar = f'<img src="{src}" alt="{m["name"]}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">'
         else:
             avatar = m["emoji"]
@@ -963,25 +973,3 @@ st.markdown("""
   <span style="color:rgba(0,229,255,.2);">── ── ── ── ── ── ── ── ──</span>
 </div>
 """, unsafe_allow_html=True)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
