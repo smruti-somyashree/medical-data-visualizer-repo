@@ -427,7 +427,7 @@ with st.sidebar:
                   line-height:1;">🫀 MEDI<span style="-webkit-text-fill-color:#69ff47">VIZ</span></div>
       <div style="font-family:'Space Mono',monospace;font-size:9px;
                   color:rgba(180,210,255,.35);letter-spacing:3px;margin-top:5px;">
-        MINOR PROJECT · 2025
+        MINOR PROJECT · 2026
       </div>
     </div>
     <hr style="border-color:rgba(0,229,255,.12);margin:4px 0 18px">
@@ -490,7 +490,7 @@ if page == "🏠  Home":
 
     st.markdown(f"""
     <div class="hero">
-      <div class="hero-eyebrow">🩺 MINOR PROJECT &nbsp;·&nbsp; MEDICAL DATA SCIENCE &nbsp;·&nbsp; 2025</div>
+      <div class="hero-eyebrow">🩺 MINOR PROJECT &nbsp;·&nbsp; MEDICAL DATA SCIENCE &nbsp;·&nbsp; 2026</div>
       <div class="hero-title">MediViz Dashboard</div>
       <div class="hero-sub">
         Visualizing cardiovascular disease patterns from 70,000+ real-world medical records
@@ -968,7 +968,7 @@ st.markdown("""
 <div style="text-align:center;padding:44px 0 20px;
             font-family:'Space Mono',monospace;font-size:9px;
             color:rgba(180,210,255,.2);letter-spacing:2px;line-height:2.4;">
-  🫀 MEDIVIZ &nbsp;·&nbsp; MINOR PROJECT 2025<br>
+  🫀 MEDIVIZ &nbsp;·&nbsp; MINOR PROJECT 2026<br>
   BUILT WITH PYTHON &amp; STREAMLIT &nbsp;·&nbsp; CSE / IT DEPT.<br>
   <span style="color:rgba(0,229,255,.2);">── ── ── ── ── ── ── ── ──</span>
 </div>
